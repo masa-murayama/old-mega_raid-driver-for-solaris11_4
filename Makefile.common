@@ -50,6 +50,17 @@ dist:
 	/usr/sbin/install -f ${DISTDIR} -m 444 Makefile.amd64_gcc
 	/usr/sbin/install -f ${DISTDIR} -m 444 Makefile.amd64_suncc
 	/usr/sbin/install -f ${DISTDIR} -m 444 Makefile.common
+	/usr/sbin/install -f ${DISTDIR} -m 444 fusion.h
+	/usr/sbin/install -f ${DISTDIR} -m 444 ld_pd_map.h
+	/usr/sbin/install -f ${DISTDIR} -m 444 ld_pd_map.c
+	/usr/sbin/install -f ${DISTDIR} -m 444 mr_sas.h
+	/usr/sbin/install -f ${DISTDIR} -m 444 mr_sas.c
+	/usr/sbin/install -f ${DISTDIR} -m 444 mr_sas_list.h
+	/usr/sbin/install -f ${DISTDIR} -m 444 mr_sas_list.c
+	/usr/sbin/install -f ${DISTDIR} -m 444 mr_sas_util.h
+	/usr/sbin/install -f ${DISTDIR} -m 444 mr_sas_tbolt.c
+	/usr/sbin/install -f ${DISTDIR} -m 444 mr_sas_util.c
+	tar cf - common | (cd ${DISTDIR}; tar xf -; find . -type f -exec chmod 444 "{}" \;)
 	ln -s Makefile.amd64_gcc ${DISTDIR}/Makefile
 	/usr/sbin/install -f ${DISTDIR} -m 755 adddrv.sh
 	cp -r amd64 ${DISTDIR}
